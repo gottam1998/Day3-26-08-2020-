@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+class UserMainCode1{
+	String venueName;
+	static void validateCity(String name) {
+		int count1=0,count2=0;
+		int l=name.length();
+		if (Pattern.matches("[a-zA-Z*]+",name)) {
+		for(int i = 0; i < l; i++) 
+        { 
+            char ch = name.charAt(i);
+            if(i==0||i==1 ||i==l-1||i==l-2) {
+            if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || ch!='*') {//(ch<'0' && ch>'9')
+            	count1++;
+            	//System.out.println(count1);
+            }
+            else
+            	//System.out.println("Invalid");
+            	break;
+            }            
+            else {
+            	if(ch == '*')
+            		count2++;//System.out.println("Valid");
+            	else
+            		//System.out.println("Invalid");
+            		break;
+            }
+                 
+            }
+		}
+		if(count1==4)
+			System.out.println("Valid");
+		else
+			System.out.println("Invalid");
+	}
+}
+
+public class ValidateName {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		String venueName=s.nextLine();
+		UserMainCode1 u = new UserMainCode1();
+		u.validateCity(venueName);
+	}
+
+}

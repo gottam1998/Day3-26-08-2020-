@@ -1,0 +1,105 @@
+package Day3;
+
+import java.util.Scanner;
+
+class Shape{
+	protected String shapeName;
+	public Shape(String shapeName){
+		this.shapeName=shapeName;
+	}
+	Double calculateArea() {
+		return (double) 0;
+	}
+}
+
+class Square extends Shape{
+	private int side;
+	public int getSide() {
+		return side;
+	}
+	public void setSide(int side) {
+		this.side = side;
+	}
+	Square(int side){
+		super("Shape");
+		this.side=side;
+	}
+	Double calculateArea(int si) {
+		double area = si*si;
+		return area;
+	}
+}
+class Rectangle extends Shape{
+	private int length;
+	private int breadth;
+	public int getLength() {
+		return length;
+	}
+	public void setLength(int length) {
+		this.length = length;
+	}
+	public int getBreadth() {
+		return breadth;
+	}
+	public void setBreadth(int breadth) {
+		this.breadth = breadth;
+	}
+	Rectangle(int length, int breadth){
+		super("Rectangle");
+		this.length=length;
+		this.breadth=breadth;
+	}
+	Double calculateArea(int l, int b) {
+		double area = l*b;
+		return area;
+	}
+	
+}
+class Circle extends Shape{
+	private int radius;
+	public int getRadius() {
+		return radius;
+	}
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
+	Circle(int radius){
+		super("Circle");
+		this.radius=radius;
+	}
+	Double calculateArea(double r) {
+		double area = 3.14*r*r;
+		return area;
+	}
+}
+
+public class CalculateArea1 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("1. Rectangle\n2. Square\n3. Circle");
+		System.out.println("Area Calculator ----- choose your option");
+		int opt=s.nextInt();
+		if(opt==1) {
+			System.out.println("Enter length and breadth");
+			int l=s.nextInt();
+			int b=s.nextInt();
+			Rectangle rectangle = new Rectangle(l,b);
+			System.out.println("Area of Rectangle is:"+rectangle.calculateArea(l,b));
+		}
+		else if(opt==2) {
+			System.out.println("Enter side");
+			int si=s.nextInt();
+			Square square=new Square(si);
+			System.out.println("Area of Square is:"+square.calculateArea(si));
+		}
+		else if(opt==3) {
+			System.out.println("Enter radius");
+			int r=s.nextInt();
+			Circle circle=new Circle(r);
+			System.out.println("Area of Circle is:"+circle.calculateArea(r));
+		}
+
+	}
+
+}
